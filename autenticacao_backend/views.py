@@ -12,7 +12,7 @@ def create_user(request):
         password = data.get("password")
         if email and password:
             # Create user using create_user method
-            user = User.objects.create_user(email=email, password=password)
+            user = User.objects.create_user(username=email, email=email, password=password)
             return Response({"message": "User created successfully"}, status=201)
         else:
             return Response({"error": "Email and password are required"}, status=400)
